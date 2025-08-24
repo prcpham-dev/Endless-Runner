@@ -1,2 +1,2 @@
 # Flappybird-ish-game
-A similar to flappy bird game. But also not
+A game similar to flappy bird game. But also not

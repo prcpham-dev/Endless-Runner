@@ -1,29 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Gravity Flip Runner (JS)</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <style>
-        :root { color-scheme: dark; }
-        html, body { margin:0; height:100%; background:#111; font-family: system-ui, Segoe UI, Roboto, Arial; }
-        .wrap { display:grid; place-items:center; height:100%; gap:16px; }
-        canvas { width:900px; max-width:95vw; height:auto; background:#181818; border:2px solid #2a2a2a; border-radius:12px; }
-        .hud { display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:center; color:#ddd; }
-        .btn { cursor:pointer; background:#222; border:1px solid #333; border-radius:8px; padding:6px 12px; color:#ddd; }
-        kbd { background:#222; border:1px solid #333; border-bottom-color:#111; border-radius:6px; padding:2px 6px; }
-    </style>
+  <meta charset="utf-8" />
+  <title>Gravity Flip Runner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="wrap">
-        <canvas id="game" width="900" height="300"></canvas>
-        <div class="hud">
-        <button id="start" class="btn">Start</button>
-        <button id="pause" class="btn">Pause</button>
-        <button id="restart" class="btn">Restart</button>
-        <span>Flip: <kbd>Space</kbd> / <kbd>Click</kbd> · Pause: <kbd>P</kbd> · Restart: <kbd>R</kbd> · <strong>Space also restarts on crash</strong></span>
-        </div>
-    </div>
-    <script src="game.js"></script>
+  <header class="site-header">
+    <h1 class="visually-hidden">Gravity Flip Runner</h1>
+  </header>
+
+  <main class="wrap" id="app">
+    <section class="stage" aria-label="Game stage">
+      <div class="canvas-wrap">
+        <canvas
+          id="game"
+          width="900"
+          height="300"
+          aria-label="Endless runner game canvas"
+          role="img"
+        ></canvas>
+      </div>
+    </section>
+
+    <section class="hud" aria-label="Game controls">
+      <div class="controls">
+        <button id="start" class="btn" type="button" aria-label="Start game">Start</button>
+        <button id="pause" class="btn" type="button" aria-pressed="false" aria-label="Pause game">Pause</button>
+        <button id="restart" class="btn" type="button" aria-label="Restart game">Restart</button>
+      </div>
+
+      <p class="help" id="help-text">
+        Flip: <kbd>Space</kbd> or <kbd>Click</kbd> · Pause: <kbd>P</kbd> · Restart: <kbd>R</kbd> ·
+        <strong>Space also restarts on crash</strong>
+      </p>
+
+      <p class="sr-status" id="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <noscript>
+    <div class="noscript">This game needs JavaScript enabled.</div>
+  </noscript>
+
+  <script src="utils.js"></script>
+  <script src="hud.js"></script>
+  <script src="game.js" defer></script>
 </body>
 </html>
