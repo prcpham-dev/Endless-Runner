@@ -2,6 +2,7 @@
 
 A simple endless runner game built with **HTML5 Canvas** and vanilla **JavaScript**, where the player flips gravity to dodge pillars. Inspired by "Flappy Bird".
 
+![screenshot](assets/hud.jpg)
 
 ## 🎮 Gameplay
 
