@@ -198,9 +198,5 @@
         else flipGravity();
     });
 
-    document.getElementById("start").onclick = () => { if (!running || over) reset(); };
-    document.getElementById("pause").onclick = () => { if (running && !over) paused = !paused; };
-    document.getElementById("restart").onclick = () => reset();
-
     requestAnimationFrame(loop);
 })();
