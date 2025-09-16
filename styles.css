@@ -103,7 +103,6 @@ kbd {
   z-index: 1000;
 }
 .site-footer strong { color: #fff; }
-.site-footer em { color: #aaa; font-style: italic; }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
