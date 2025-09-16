@@ -1,10 +1,12 @@
 # Endless Runner
 
+🎮 **Play the game here → [Endless Runner on GitHub Pages](https://prcpham-dev.github.io/Endless-Runner/)**
+
 A simple endless runner game built with **HTML5 Canvas** and vanilla **JavaScript**, where the player flips gravity to dodge pillars. Inspired by "Flappy Bird".
 
 ![screenshot](assets/hud.png)
 
-## 🎮 Gameplay
+## 👻 Gameplay
 
 <div style="display: flex; align-items: center; gap: 20px;">
   <div>
@@ -46,3 +48,7 @@ A simple endless runner game built with **HTML5 Canvas** and vanilla **JavaScrip
 - **HUD**:
   - Score and high score displayed in the top-left corner.
   - Game state messages (`Paused`, `Game Over`, etc.) shown at the center.
+
+## Credits
+
+- 👻 Character art: Thanks to **[Person’s Name]** for creating the LittleGhost sprite and HUD artwork.  
