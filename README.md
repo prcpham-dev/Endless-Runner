@@ -6,7 +6,7 @@ A simple endless runner game built with **HTML5 Canvas** and vanilla **JavaScrip
 
 ## 🎮 Gameplay
 
-<table>
+<table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><img src="assets/LittleGhost.gif" width="120"></td>
     <td>
