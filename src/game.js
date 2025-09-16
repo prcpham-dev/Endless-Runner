@@ -118,6 +118,13 @@
             state.player.vy = 0;
         }
 
+        // Scroll background at same rate as pillars (scaled for image/canvas width)
+        if (HUD.bgLoaded && HUD.bgImg) {
+            const imgW = HUD.bgImg.width;
+            bgScrollX += state.speed * dt * (imgW / canvas.width);
+            if (bgScrollX >= imgW) bgScrollX -= imgW;
+        }
+
         state.spawnIn -= dt;
         if (state.spawnIn <= 0) {
             spawnPillars();
@@ -142,9 +149,12 @@
         Ghost.updateAnim(dt, running, paused, over);
     }
 
+    // Background scroll state
+    let bgScrollX = 0;
+
     // Draw
     function draw() {
-        HUD.drawBackground();
+        HUD.drawBackground(bgScrollX);
         HUD.drawBounds(CEIL_Y, FLOOR_Y);
 
         for (const p of state.pillars) Pillars.draw(ctx, p);

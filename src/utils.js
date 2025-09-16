@@ -2,8 +2,10 @@ const rand = (a, b) => Math.random() * (b - a) + a;
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-const collide = (ax, ay, aw, ah, bx, by, bw, bh) => 
-    ax < bx + bw && ax + aw > bx && ay < by + bh && ay + ah > by;
+const collide = (ax, ay, aw, ah, bx, by, bw, bh, offsetL = 4) =>
+  (ax + offsetL) < (bx + bw) &&
+  (ax + aw) > bx && ay < (by + bh) &&
+  (ay + ah) > by;
 
 const roundRect = (ctx, x, y, w, h, r) => {
     const rr = Math.min(r, w / 2, h / 2);

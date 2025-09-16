@@ -6,29 +6,41 @@ const Pillars = {
     CEIL_Y: 30,
 
     pillarBodies: [],
-    pillarCap: null,
+    pillarCaps: [],
     pillarsReady: false,
 
     init() {
         this.pillarBodies.length = 0;
-        this.pillarCap = new Image();
+        this.pillarCaps.length = 0;
         this.pillarsReady = false;
 
-        const body1 = new Image();
-        const body2 = new Image();
-        body1.src = "assets/Pillars/Bot_01.png";
-        body2.src = "assets/Pillars/Bot_02.png";
-        this.pillarCap.src = "assets/Pillars/Top.png";
+        const botImageFiles = [
+            "assets/Pillars/Bot/Bot_01.png",
+            "assets/Pillars/Bot/Bot_02.png"
+        ];
+        const topImageFiles = [
+            "assets/Pillars/Top/Top.png"
+        ];
 
         let count = 0;
-        const need = 3;
+        const need = botImageFiles.length + topImageFiles.length;
         const done = () => { if (++count === need) this.pillarsReady = true; };
 
-        body1.onload = done; body1.onerror = done;
-        body2.onload = done; body2.onerror = done;
-        this.pillarCap.onload = done; this.pillarCap.onerror = done;
+        botImageFiles.forEach(src => {
+            const img = new Image();
+            img.src = src;
+            img.onload = done;
+            img.onerror = done;
+            this.pillarBodies.push(img);
+        });
 
-        this.pillarBodies.push(body1, body2);
+        topImageFiles.forEach(src => {
+            const img = new Image();
+            img.src = src;
+            img.onload = done;
+            img.onerror = done;
+            this.pillarCaps.push(img);
+        });
     },
 
     drawPillarBodyAndCap(ctx, bodyA, bodyB, cap, p, segHf, capHf) {
@@ -61,15 +73,32 @@ const Pillars = {
 
         if (!this.pillarsReady) {
             ctx.fillStyle = "#49d";
+
+            // green glow
+            ctx.shadowColor = "#00ff66";
+            ctx.shadowBlur = 15;
+
             Utils.roundRect(ctx, Math.round(p.x), Math.round(p.y), Math.round(p.w), Math.round(p.h), 6);
             ctx.fill();
+
+            // reset glow
+            ctx.shadowBlur = 0;
+            ctx.shadowColor = "transparent";
+
             ctx.imageSmoothingEnabled = prevSmoothing;
             return;
         }
 
-        const bodyA = this.pillarBodies[0];
-        const bodyB = this.pillarBodies[1];
-        const cap   = this.pillarCap;
+        // Assign a bot image index and top image index to each pillar if not already set
+        if (typeof p.botImageIdx === "undefined") {
+            p.botImageIdx = Math.floor(Math.random() * this.pillarBodies.length);
+        }
+        if (typeof p.topImageIdx === "undefined") {
+            p.topImageIdx = Math.floor(Math.random() * this.pillarCaps.length);
+        }
+        const bodyA = this.pillarBodies[p.botImageIdx];
+        const bodyB = this.pillarBodies[(p.botImageIdx + 1) % this.pillarBodies.length];
+        const cap   = this.pillarCaps[p.topImageIdx];
 
         const srcBodyW = bodyA.width  || p.w;
         const srcBodyH = bodyA.height || p.h;
@@ -82,11 +111,22 @@ const Pillars = {
         ctx.save();
         ctx.translate(Math.round(p.x), Math.round(p.isTop ? (p.y + p.h) : p.y));
         if (p.isTop) ctx.scale(1, -1);
+
+        // green glow for textured pillars
+        ctx.shadowColor = "#00ff66";
+        ctx.shadowBlur = 15;
+
         this.drawPillarBodyAndCap(ctx, bodyA, bodyB, cap, p, segH, capH);
+
+        // reset glow
+        ctx.shadowBlur = 0;
+        ctx.shadowColor = "transparent";
+
         ctx.restore();
 
         ctx.imageSmoothingEnabled = prevSmoothing;
     }
+
 };
 
 Pillars.init();

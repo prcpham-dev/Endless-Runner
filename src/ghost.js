@@ -41,20 +41,28 @@ const Ghost = {
 
         if (this.ghostReady) {
             const img = this.ghostFrames[this.animFrame];
+            const t = Date.now() * 0.005;
+            const pulse = (Math.sin(t) + 1) / 2;
+            ctx.shadowColor = "#00ffff";
+            ctx.shadowBlur = 5 + pulse * 15;
 
             if (gravitySign < 0) {
                 ctx.save();
                 ctx.translate(x + this.PLAYER_SIZE / 2, y + this.PLAYER_SIZE / 2);
                 ctx.scale(1, -1);
                 ctx.drawImage(
-                img,
-                -this.PLAYER_SIZE / 2, -this.PLAYER_SIZE / 2,
-                this.PLAYER_SIZE, this.PLAYER_SIZE
+                    img,
+                    -this.PLAYER_SIZE / 2, -this.PLAYER_SIZE / 2,
+                    this.PLAYER_SIZE, this.PLAYER_SIZE
                 );
                 ctx.restore();
             } else {
                 ctx.drawImage(img, x, y, this.PLAYER_SIZE, this.PLAYER_SIZE);
             }
+
+            ctx.shadowBlur = 0;
+            ctx.shadowColor = "transparent";
+
         } else {
             ctx.fillStyle = "#eee";
             Utils.roundRect(ctx, x, y, this.PLAYER_SIZE, this.PLAYER_SIZE, 6);
