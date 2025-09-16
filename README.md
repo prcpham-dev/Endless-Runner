@@ -6,21 +6,20 @@ A simple endless runner game built with **HTML5 Canvas** and vanilla **JavaScrip
 
 ## 🎮 Gameplay
 
-<div style="display: flex; align-items: center; gap: 20px;">
-  <div>
-    <img src="assets/LittleGhost.gif" alt="LittleGhost character" width="120">
-  </div>
+<table>
+  <tr>
+    <td><img src="assets/LittleGhost.gif" width="120"></td>
+    <td>
 
-  <div>
+  - Play as a small ghost that can **flip** between the floor and ceiling  
+  - Dodge the **pillars** that spawn with random gaps  
+  - The game **speeds up** the longer you survive  
+  - Score increases with **time survived** and **obstacles cleared**  
+  - Your **high score** is saved automatically using `localStorage`  
 
-  - The player is a small ghost character that can flip between the floor and ceiling.  
-  - Avoid crashing into the **pillars** that spawn with random gaps.  
-  - The game gets faster the longer you survive.  
-  - Your **score** increases with time and obstacles cleared.  
-  - Your **high score** is saved locally (via `localStorage`).  
-
-  </div>
-</div>
+    </td>
+  </tr>
+</table>
 
 ## 🕹 Controls
 
