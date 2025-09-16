@@ -107,6 +107,28 @@ kbd {
   border: 1px solid #553;
 }
 
+.site-footer {
+  position: fixed;       /* always sticks to viewport */
+  bottom: 0;             /* lock at bottom */
+  left: 0;
+  width: 100%;           /* span full width */
+  text-align: center;
+  padding: 8px 0;
+  background: rgba(17, 17, 17, 0.85); /* semi-transparent bg to match theme */
+  font-size: 0.85rem;
+  color: #ccc;
+  z-index: 1000;         /* stay above canvas */
+}
+
+.site-footer strong {
+  color: #fff;
+}
+
+.site-footer em {
+  color: #aaa;
+  font-style: italic;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition: none !important; }
