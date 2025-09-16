@@ -50,5 +50,5 @@ A simple endless runner game built with **HTML5 Canvas** and vanilla **JavaScrip
   - Game state messages (`Paused`, `Game Over`, etc.) shown at the center.
 
 ## Credits
-
-- 👻 Character art: Thanks to **[Person’s Name]** for creating the LittleGhost sprite and HUD artwork.  
+- Art & Design: A huge thanks to **Tai** for creating the **LittleGhost character** and all of the **art assets** (HUD, sprites, and visuals) used in this game.  
+- Inspiration: Gameplay inspired by *Flappy Bird* and maybe other games.
