@@ -108,16 +108,16 @@ kbd {
 }
 
 .site-footer {
-  position: fixed;       /* always sticks to viewport */
-  bottom: 0;             /* lock at bottom */
+  position: fixed;
+  bottom: 0;
   left: 0;
-  width: 100%;           /* span full width */
+  width: 100%;
   text-align: center;
   padding: 8px 0;
-  background: rgba(17, 17, 17, 0.85); /* semi-transparent bg to match theme */
+  background: rgba(17, 17, 17, 0.85);
   font-size: 0.85rem;
   color: #ccc;
-  z-index: 1000;         /* stay above canvas */
+  z-index: 1000;
 }
 
 .site-footer strong {
