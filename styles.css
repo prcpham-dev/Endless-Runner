@@ -33,7 +33,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 125px 16px 16px;
+  padding: 160px 16px 16px;
   gap: 16px;
 }
 
@@ -107,4 +107,24 @@ kbd {
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition: none !important; }
+}
+
+
+/* --- Game Logo --- */
+.game-logo {
+  position: fixed;
+  top: 50px;
+  left: 100px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0f0; /* Neon green */
+  text-shadow:
+    0 0 4px #0f0,
+    0 0 10px #0f0,
+    0 0 20px #0a0,
+    0 0 40px #0a0;
+  z-index: 2000;
+  user-select: none;
+  pointer-events: none; /* prevents blocking clicks */
+  font-family: "Press Start 2P", monospace, system-ui; /* retro pixel look (optional) */
 }
