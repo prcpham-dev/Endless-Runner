@@ -43,10 +43,10 @@
     let score = 0;
     let high = Number(localStorage.getItem("flip_high") || "0");
     let crashCooldown = 0;
-    let nextScoreThreshold = 100;
+    let nextScoreThreshold = 50;
 
     // Sound
-    const passSound = new Audio("assets/Sounds/100.wav");
+    const passSound = new Audio("assets/Sounds/50.wav");
     passSound.volume = 0.5;
 
     const flipSound = new Audio("assets/Sounds/flip.wav");
@@ -90,7 +90,7 @@
         paused = false;
         over = false;
         score = 0;
-        nextScoreThreshold = 100;
+        nextScoreThreshold = 50;
         state.speed = SPEED_START;
         state.elapsed = 0;
         state.spawnIn = Utils.rand(SPAWN_MIN, SPAWN_MAX);
@@ -128,11 +128,10 @@
         state.speed = SPEED_START + SPEED_RAMP * Math.sqrt(state.elapsed);
 
         score += SCORE_SPEED * dt;
-        // Play sound every time score passes a multiple of 100
-        while (score >= nextScoreThreshold) {
+        if (score >= nextScoreThreshold) {
             passSound.currentTime = 0;
             passSound.play();
-            nextScoreThreshold += 100;
+            nextScoreThreshold += 50;
         }
 
         state.player.vy += GRAVITY * state.gravitySign * dt;
@@ -187,7 +186,6 @@
 
     // Background scroll state
     let bgScrollX = 0;
-
 
     // Draw
     function draw() {

@@ -15,11 +15,16 @@ const Pillars = {
         this.pillarsReady = false;
 
         const botImageFiles = [
-            "assets/Pillars/Bot/Bot_01.png",
-            "assets/Pillars/Bot/Bot_02.png"
+            "assets/Pillars/Bot/Bot_1.png",
+            "assets/Pillars/Bot/Bot_2.png",
+            "assets/Pillars/Bot/Bot_3.png",
+            "assets/Pillars/Bot/Bot_4.png",
+            "assets/Pillars/Bot/Bot_5.png"
         ];
         const topImageFiles = [
-            "assets/Pillars/Top/Top.png"
+            "assets/Pillars/Top/Top_1.png",
+            "assets/Pillars/Top/Top_2.png",
+            "assets/Pillars/Top/Top_3.png"
         ];
 
         let count = 0;
